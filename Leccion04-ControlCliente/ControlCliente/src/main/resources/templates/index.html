@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymelaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>EN un DIVV HTML ppapappa</div>
+        <p th:text="${mensaje}"></p>
+        <h1>INICIO</h1>
+        <br><!-- comment -->
+        <div th:if="${personas != null and !personas.empty}">
+
+
+            <table border="1">
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>EMAIL</th>
+                    <th>TELEFONO</th>
+                </tr>
+                <tr th:each="persona : ${personas}"><!<!-- Iteramos la lista de personas -->
+                    <td th:text="${persona.nombre}">Nombre</td>
+                    <td th:text="${persona.apellido}">Apellido</td>
+                    <td th:text="${persona.email}">email</td>
+                    <td th:text="${persona.telefono}">telefono</td>
+
+                </tr>
+            </table>
+        </div>
+        <div th:if="${personas == null or personas.empty}">
+            La lista de personas esta vacia
+        </div>
+
+    </body>
+</html>
